@@ -1,0 +1,8 @@
+Plan:
+
+get the audio into embeddings from that research paper that beat shazam
+
+use triplet loss network
+using only one embedding
+ 
+follow google paper 
