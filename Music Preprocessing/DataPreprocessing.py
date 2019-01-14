@@ -1,5 +1,10 @@
 # coding: utf-8
 import pandas as pd
+from pydub import Audio Segment
+from glob import iglob
+import os
+# os.path.isfile('')
+
 data = pd.read_csv("LibraryList.csv")
 
 def locationProcessing(str):
@@ -13,7 +18,7 @@ data = data.drop(['Column1', 'Column2', 'Column3','Genre','Play Count'], axis=1)
 
 def isWav(str):
     return str[-3:]
-    
+
 data['ext'] = data['path'].apply(isWav)
 data['ext'].value_counts()
 df = data[(data.ext == 'mp3') | (data.ext == 'wav')]
