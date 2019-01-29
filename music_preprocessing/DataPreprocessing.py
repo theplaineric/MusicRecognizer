@@ -25,12 +25,16 @@ df = data[(data.ext == 'mp3') | (data.ext == 'wav')]
 
 mp3_files = df[df['ext'] == 'mp3']['path'].tolist()
 
+wav_file_paths = []
+
 def convert_mp3_to_wav():
     for file in mp3_files:
         if (not os.path.isfile(file)):
             continue
         mp3_to_wav = AudioSegment.from_mp3(file)
-        mp3_to_wav.export(get_file_name(file), format='wav')
+        wav_file_path = get_file_name(file)
+        mp3_to_wav.export(wav_file_path, format='wav')
+        wav_file_paths.append(wav_file_path)
 
 def get_file_name(str):
     strList = str.split("/")
